@@ -1,16 +1,21 @@
 {
-  "name": "Chrome Extension Example",
+  "name": "Browser Smack",
   "version": "1.0",
-  "description": "Build an Extension!",
-  "manifest_version": 2,
-
+  "description": "Set a very simple but powerful reminder so you can easily  get back on task when exploring the dizzyingly massive World Wide Web. Every new page visited is like a smack in the face.",
+  "permissions": ["declarativeContent","storage"],
   "background": {
-    "scripts": [
-      "background.js"
+      "scripts": ["background.js"],
+      "persistent": false
+    },
 
+  "content_scripts": [
+  {
+    "matches": [
+      "<all_urls>"
     ],
-    "persistent": false
-  },
+    "js": ["content.js"]
+  }
+],
   "page_action": {
         "default_popup": "popup.html",
         "default_icon": {
@@ -25,5 +30,6 @@
         "32": "JohnnyAppsLogo.png",
         "48": "JohnnyAppsLogo.png",
         "128": "JohnnyAppsLogo.png"
-    }
+    },
+  "manifest_version": 2
 }
